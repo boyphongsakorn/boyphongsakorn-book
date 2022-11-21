@@ -1,7 +1,7 @@
 import { Component, LOCALE_ID } from '@angular/core';
 import {FormControl,ReactiveFormsModule} from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, NativeDateAdapter } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepickerModule,MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
 import * as _moment from 'moment';
@@ -58,17 +58,31 @@ export class CustomDateAdapter extends NativeDateAdapter {
 })
 export class AppComponent {
   title = 'book';
-  date = new FormControl(moment());
+  date = new FormControl(new Date());
+  weekdays = false;
   todayDate:Date = new Date();
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     if(d?.getMonth() === 10 && d?.getDate() >= 26){
       return false;
     }
-    if(d?.getMonth() === 11 && d?.getDate() <= 4){
+    if(d?.getMonth() === 11 && d?.getDate() < 4){
       return false;
     }
     // Prevent weekdays from being selected.
-    return day === 0 || day === 6;
+    //if(day === 0 || day === 6){
+      return true;
+      //display none mat-chip-listbox
+    //}
+    //return day === 0 || day === 6;
   };
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    //this.events.push(`${type}: ${event.value}`);
+    console.log(event.value);
+    if(event.value?.getDay() !== 0 && event.value?.getDay() !== 6){
+      this.weekdays = true;
+    }else{
+      this.weekdays = false;
+    }
+  }
 }

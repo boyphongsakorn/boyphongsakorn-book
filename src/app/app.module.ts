@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatChipsModule,
+    MatCardModule
   ],
-  providers: [
-    { provide: LOCALE_ID, useValue: "th-TH" }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

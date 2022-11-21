@@ -302,14 +302,29 @@
   }
 </style>
 
-<!-- Toolbar -->
 <!-- datepicker with DD/MM/YYYY -->
 <mat-form-field appearance="fill">
   <mat-label>Enter a date</mat-label>
-  <input matInput [min]="todayDate" [matDatepicker]="dp" [formControl]="date" [matDatepickerFilter]="myFilter">
+  <input matInput [min]="todayDate" [matDatepicker]="dp" [formControl]="date" [matDatepickerFilter]="myFilter" (dateInput)="addEvent('input', $event)">
   <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
   <mat-datepicker #dp></mat-datepicker>
 </mat-form-field>
+
+<br>
+เลือกเวลาที่ต้องการจะจองคิว
+
+<mat-chip-listbox aria-label="Select Time">
+  <mat-chip-option *ngIf="weekdays == false">10:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false">11:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" color="accent">13:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" color="warn">14:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" color="warn">15:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" color="warn">16:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" color="warn">17:00</mat-chip-option>
+  <mat-chip-option color="warn" selected>18:00</mat-chip-option>
+  <mat-chip-option color="warn">19:00</mat-chip-option>
+  <mat-chip-option color="warn">20:00</mat-chip-option>
+</mat-chip-listbox>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
