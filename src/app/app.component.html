@@ -314,17 +314,19 @@
 เลือกเวลาที่ต้องการจะจองคิว
 
 <mat-chip-listbox aria-label="Select Time">
-  <mat-chip-option *ngIf="weekdays == false">10:00</mat-chip-option>
-  <mat-chip-option *ngIf="weekdays == false">11:00</mat-chip-option>
-  <mat-chip-option *ngIf="weekdays == false" color="accent">13:00</mat-chip-option>
-  <mat-chip-option *ngIf="weekdays == false" color="warn">14:00</mat-chip-option>
-  <mat-chip-option *ngIf="weekdays == false" color="warn">15:00</mat-chip-option>
-  <mat-chip-option *ngIf="weekdays == false" color="warn">16:00</mat-chip-option>
-  <mat-chip-option *ngIf="weekdays == false" color="warn">17:00</mat-chip-option>
-  <mat-chip-option color="warn" selected>18:00</mat-chip-option>
-  <mat-chip-option color="warn">19:00</mat-chip-option>
-  <mat-chip-option color="warn">20:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('10:00')">10:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('11:00')">11:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('13:00')" color="accent">13:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('14:00')" color="warn">14:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('15:00')" color="warn">15:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('16:00')" color="warn">16:00</mat-chip-option>
+  <mat-chip-option *ngIf="weekdays == false" (click)="getValue('17:00')" color="warn">17:00</mat-chip-option>
+  <mat-chip-option color="warn" selected (click)="getValue('18:00')">18:00</mat-chip-option>
+  <mat-chip-option color="warn" (click)="getValue('19:00')">19:00</mat-chip-option>
+  <mat-chip-option color="warn" (click)="getValue('20:00')">20:00</mat-chip-option>
 </mat-chip-listbox>
+
+<button mat-raised-button (click)="sumbit()" color="primary">ยืนยัน</button>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

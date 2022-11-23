@@ -61,6 +61,7 @@ export class AppComponent {
   date = new FormControl(new Date());
   weekdays = false;
   todayDate:Date = new Date();
+  time = "12:00";
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     if(d?.getMonth() === 10 && d?.getDate() >= 26){
@@ -84,5 +85,13 @@ export class AppComponent {
     }else{
       this.weekdays = false;
     }
+  }
+  getValue(wow:any){
+    this.time = wow;
+    console.log(wow);
+  }
+  sumbit(){
+    console.log(this.date.value);
+    console.log(this.time);
   }
 }
